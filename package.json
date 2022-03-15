@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/LeoAChaves/Rosemary_API/issues"
   },
-  "homepage": "https://github.com/LeoAChaves/Rosemary_API#readme"
+  "homepage": "https://github.com/LeoAChaves/Rosemary_API#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
