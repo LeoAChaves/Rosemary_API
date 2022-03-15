@@ -1,0 +1,25 @@
+{
+  "name": "rosemary_api",
+  "version": "0.0.1",
+  "description": "API estudio Rosemary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoAChaves/Rosemary_API.git"
+  },
+  "keywords": [
+    "API",
+    "Tattoo",
+    "Piercing",
+    "Studio"
+  ],
+  "author": "Leonardo Chaves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeoAChaves/Rosemary_API/issues"
+  },
+  "homepage": "https://github.com/LeoAChaves/Rosemary_API#readme"
+}
