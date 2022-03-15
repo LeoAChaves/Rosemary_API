@@ -24,5 +24,8 @@
   "homepage": "https://github.com/LeoAChaves/Rosemary_API#readme",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
