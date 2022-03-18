@@ -106,12 +106,30 @@ class AgendaDAO {
           } else {
             resolve({
               message: `Novo agendamento criado com sucesso. Data: ${novoAgendamento.Data}, Hora: ${novoAgendamento.Hora}`,
-              agendamento: novoAgendamento,
+              agenda: novoAgendamento,
               error: false,
             });
           }
         }
       );
+    });
+  };
+
+  deletarAgendamento = (ID) => {
+    return new Promise((resolve, reject) => {
+      this.db.run("DELETE FROM AGENDA WHERE ID = ?", ID, (error) => {
+        if (error) {
+          reject({
+            mensagem: error,
+            error: true,
+          });
+        } else {
+          resolve({
+            agenda: `Agendamento de id ${ID} deletado com sucesso`,
+            error: false,
+          });
+        }
+      });
     });
   };
 }

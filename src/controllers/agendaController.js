@@ -72,6 +72,18 @@ const AgendaController = (app, bd) => {
       });
     }
   });
+
+  app.delete("/agenda/id/:ID", (req, res) => {
+    const ID = req.params.ID;
+    agendaDAO
+      .deletarAgendamento(ID)
+      .then((response) => {
+        res.json(response);
+      })
+      .catch((error) => {
+        res.json(error);
+      });
+  });
 };
 
 export default AgendaController;
