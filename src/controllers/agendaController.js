@@ -73,6 +73,35 @@ const AgendaController = (app, bd) => {
     }
   });
 
+  app.put("/agenda/id/:ID", (req, res) => {
+    const ID = req.params.ID;
+    const body = req.body;
+
+    try {
+      const atualizacao = new AgendaModel(
+        body.Cliente_ID,
+        body.Funcionario_ID,
+        body.Data,
+        body.Hora,
+        body.Servico,
+        body.Duracao
+      );
+      agendaDAO
+        .atualizarAgendamento(ID, atualizacao)
+        .then((response) => {
+          res.json(response);
+        })
+        .catch((error) => {
+          res.json(error);
+        });
+    } catch (error) {
+      res.json({
+        message: error,
+        error: true,
+      });
+    }
+  });
+
   app.delete("/agenda/id/:ID", (req, res) => {
     const ID = req.params.ID;
     agendaDAO

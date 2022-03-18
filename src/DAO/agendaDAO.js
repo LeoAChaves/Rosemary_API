@@ -115,6 +115,35 @@ class AgendaDAO {
     });
   };
 
+  atualizarAgendamento = (ID, atualizacao) => {
+    return new Promise((resolve, reject) => {
+      this.db.run(
+        "UPDATE AGENDA SET Cliente_ID = ?, Funcionario_ID = ?, Data = ?, Hora = ?, Servico = ?, Duracao = ? WHERE ID = ?",
+        atualizacao.Cliente_ID,
+        atualizacao.Funcionario_ID,
+        atualizacao.Data,
+        atualizacao.Hora,
+        atualizacao.Servico,
+        atualizacao.Duracao,
+        ID,
+        (error) => {
+          if (error) {
+            reject({
+              message: error,
+              error: true,
+            });
+          } else {
+            resolve({
+              message: `Agendamento de ID ${ID} atualizado com sucesso`,
+              agendamento: atualizacao,
+              error: false,
+            });
+          }
+        }
+      );
+    });
+  };
+
   deletarAgendamento = (ID) => {
     return new Promise((resolve, reject) => {
       this.db.run("DELETE FROM AGENDA WHERE ID = ?", ID, (error) => {
@@ -125,7 +154,7 @@ class AgendaDAO {
           });
         } else {
           resolve({
-            agenda: `Agendamento de id ${ID} deletado com sucesso`,
+            agenda: `Agendamento de ID ${ID} deletado com sucesso`,
             error: false,
           });
         }
