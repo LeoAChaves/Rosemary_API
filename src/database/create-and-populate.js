@@ -15,11 +15,12 @@ const AGENDA_SCHEMA = `CREATE TABLE IF NOT EXISTS "AGENDA" (
     "Duracao" integer
 )`;
 
-const ADD_AGENDA_DATA = `INSERT INTO AGENDA (ID, Cliente_ID, Funcionario_ID, Data, Servico, Duracao)
-VALUES (1, 1, 3, "16/03/2022", "Portifolio_ID 5", 60),
-(2, 2, 1, "17/04/2022", "Portifolio_ID 2", 120),
-(3, 3, 4, "18/05/2022", "Portifolio_ID 15", 30),
-(4, 4, 2, "19/06/2022", "Portifolio_ID 7", 180)`;
+const ADD_AGENDA_DATA = `INSERT INTO AGENDA (Cliente_ID, Funcionario_ID, Data, Servico, Duracao)
+VALUES (1, 3, "16/03/2022", "Portifolio_ID 5", 60),
+(2, 1, "17/04/2022", "Portifolio_ID 2", 120),
+(3, 4, "18/05/2022", "Portifolio_ID 15", 30),
+(4, 2, "19/06/2022", "Portifolio_ID 7", 180),
+(5, 2, "19/06/2022", "Portifolio_ID 10", 90)`;
 
 function criarTabelaAgenda() {
   db.run(AGENDA_SCHEMA, (error) => {

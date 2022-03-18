@@ -10,14 +10,6 @@ const AgendaController = (app, bd) => {
     } catch (error) {
       res.json(error);
     }
-    // agendaDAO
-    //   .pegarTodosAgendamentos()
-    //   .then((resposta) => {
-    //     res.json(resposta);
-    //   })
-    //   .catch((error) => {
-    //     res.json(error);
-    //   });
   });
 };
 
