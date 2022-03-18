@@ -34,6 +34,16 @@ const AgendaController = (app, bd) => {
       res.json(error);
     }
   });
+
+  app.get("/agenda/data/:Data", async (req, res) => {
+    try {
+      const Data = req.params.Data;
+      const pegarAgendamentoData = await agendaDAO.pegarAgendamentoData(Data);
+      res.json(pegarAgendamentoData);
+    } catch (error) {
+      res.json(error);
+    }
+  });
 };
 
 export default AgendaController;
