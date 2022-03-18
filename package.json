@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/LeoAChaves/Rosemary_API#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "sqlite3": "^5.0.0"
   },
