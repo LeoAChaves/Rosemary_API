@@ -1,4 +1,5 @@
 import AgendaDAO from "../DAO/agendaDAO.js";
+import AgendaModel from "../models/agendaModel.js";
 
 const AgendaController = (app, bd) => {
   const agendaDAO = new AgendaDAO(bd);
@@ -42,6 +43,33 @@ const AgendaController = (app, bd) => {
       res.json(pegarAgendamentoData);
     } catch (error) {
       res.json(error);
+    }
+  });
+
+  app.post("/agenda", (req, res) => {
+    const body = req.body;
+    try {
+      const novoAgendamento = new AgendaModel(
+        body.Cliente_ID,
+        body.Funcionario_ID,
+        body.Data,
+        body.Hora,
+        body.Servico,
+        body.Duracao
+      );
+      agendaDAO
+        .inserirAgendamento(novoAgendamento)
+        .then((response) => {
+          res.json(response);
+        })
+        .catch((error) => {
+          res.json(error);
+        });
+    } catch (error) {
+      res.json({
+        message: error.message,
+        error: true,
+      });
     }
   });
 };

@@ -1,13 +1,11 @@
 class AgendaModel {
-  constructor(id, cliente_id, funcionario_id, data, hora, servico, duracao) {
-    this.id = id;
-    this.cliente_id = cliente_id;
-    this.funcionario_id = funcionario_id;
-    this.data = data;
-    this.hora = hora;
-    this.servico = servico;
-    this.duracao = duracao;
+  constructor(cliente_id, funcionario_id, data, hora, servico, duracao) {
+    this.Cliente_ID = cliente_id;
+    this.Funcionario_ID = funcionario_id;
+    this.Data = data;
+    this.Hora = hora;
+    this.Servico = servico;
+    this.Duracao = duracao;
   }
 }
-
 export default AgendaModel;

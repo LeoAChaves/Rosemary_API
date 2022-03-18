@@ -2,6 +2,7 @@ class AgendaDAO {
   constructor(db) {
     this.db = db;
   }
+
   pegarTodosAgendamentos = () => {
     return new Promise((resolve, reject) => {
       this.db.all("SELECT * FROM AGENDA", (error, rows) => {
@@ -19,6 +20,7 @@ class AgendaDAO {
       });
     });
   };
+
   pegarAgendamentoCliente = (Cliente_ID) => {
     return new Promise((resolve, reject) => {
       this.db.all(
@@ -40,6 +42,7 @@ class AgendaDAO {
       );
     });
   };
+
   pegarAgendamentoFuncionario = (Funcionario_ID) => {
     return new Promise((resolve, reject) => {
       this.db.all(
@@ -61,6 +64,7 @@ class AgendaDAO {
       );
     });
   };
+
   pegarAgendamentoData = (Data) => {
     return new Promise((resolve, reject) => {
       this.db.all(
@@ -75,6 +79,34 @@ class AgendaDAO {
           } else {
             resolve({
               agenda: rows,
+              error: false,
+            });
+          }
+        }
+      );
+    });
+  };
+
+  inserirAgendamento = (novoAgendamento) => {
+    return new Promise((resolve, reject) => {
+      this.db.run(
+        "INSERT INTO AGENDA (Cliente_ID, Funcionario_ID, Data, Hora, Servico, Duracao) VALUES (?, ?, ?, ?, ?, ?)",
+        novoAgendamento.Cliente_ID,
+        novoAgendamento.Funcionario_ID,
+        novoAgendamento.Data,
+        novoAgendamento.Hora,
+        novoAgendamento.Servico,
+        novoAgendamento.Duracao,
+        (error) => {
+          if (error) {
+            reject({
+              message: error,
+              error: true,
+            });
+          } else {
+            resolve({
+              message: `Novo agendamento criado com sucesso. Data: ${novoAgendamento.Data}, Hora: ${novoAgendamento.Hora}`,
+              agendamento: novoAgendamento,
               error: false,
             });
           }
