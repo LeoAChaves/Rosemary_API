@@ -23,6 +23,17 @@ const AgendaController = (app, bd) => {
       res.json(error);
     }
   });
+
+  app.get("/agenda/funcionario/:Funcionario_ID", async (req, res) => {
+    try {
+      const Funcionario_ID = req.params.Funcionario_ID;
+      const pegarAgendamentoFuncionario =
+        await agendaDAO.pegarAgendamentoFuncionario(Funcionario_ID);
+      res.json(pegarAgendamentoFuncionario);
+    } catch (error) {
+      res.json(error);
+    }
+  });
 };
 
 export default AgendaController;
