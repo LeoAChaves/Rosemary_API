@@ -7,9 +7,9 @@ const AgendaController = (app, bd) => {
   app.get("/agenda", async (req, res) => {
     try {
       const pegarTodosAgendamentos = await agendaDAO.pegarTodosAgendamentos();
-      res.json(pegarTodosAgendamentos);
+      res.status(200).json(pegarTodosAgendamentos);
     } catch (error) {
-      res.json(error);
+      res.status(400).json(error);
     }
   });
 
@@ -19,9 +19,9 @@ const AgendaController = (app, bd) => {
       const pegarAgendamentoCliente = await agendaDAO.pegarAgendamentoCliente(
         Cliente_ID
       );
-      res.json(pegarAgendamentoCliente);
+      res.status(200).json(pegarAgendamentoCliente);
     } catch (error) {
-      res.json(error);
+      res.status(400).json(error);
     }
   });
 
@@ -30,9 +30,9 @@ const AgendaController = (app, bd) => {
       const Funcionario_ID = req.params.Funcionario_ID;
       const pegarAgendamentoFuncionario =
         await agendaDAO.pegarAgendamentoFuncionario(Funcionario_ID);
-      res.json(pegarAgendamentoFuncionario);
+      res.status(200).json(pegarAgendamentoFuncionario);
     } catch (error) {
-      res.json(error);
+      res.status(400).json(error);
     }
   });
 
@@ -40,9 +40,9 @@ const AgendaController = (app, bd) => {
     try {
       const Data = req.params.Data;
       const pegarAgendamentoData = await agendaDAO.pegarAgendamentoData(Data);
-      res.json(pegarAgendamentoData);
+      res.status(200).json(pegarAgendamentoData);
     } catch (error) {
-      res.json(error);
+      res.status(400).json(error);
     }
   });
 
@@ -60,13 +60,13 @@ const AgendaController = (app, bd) => {
       agendaDAO
         .inserirAgendamento(novoAgendamento)
         .then((response) => {
-          res.json(response);
+          res.status(201).json(response);
         })
         .catch((error) => {
-          res.json(error);
+          res.status(400).json(error);
         });
     } catch (error) {
-      res.json({
+      res.status(400).json({
         message: error.message,
         error: true,
       });
@@ -89,13 +89,13 @@ const AgendaController = (app, bd) => {
       agendaDAO
         .atualizarAgendamento(ID, atualizacao)
         .then((response) => {
-          res.json(response);
+          res.status(200).json(response);
         })
         .catch((error) => {
-          res.json(error);
+          res.status(400).json(error);
         });
     } catch (error) {
-      res.json({
+      res.status(400).json({
         message: error,
         error: true,
       });
@@ -107,10 +107,10 @@ const AgendaController = (app, bd) => {
     agendaDAO
       .deletarAgendamento(ID)
       .then((response) => {
-        res.json(response);
+        res.status(200).json(response);
       })
       .catch((error) => {
-        res.json(error);
+        res.status(400).json(error);
       });
   });
 };
