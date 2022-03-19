@@ -46,7 +46,7 @@ const AgendaController = (app, bd) => {
     }
   });
 
-  app.post("/agenda", (req, res) => {
+  app.post("/agenda", async (req, res) => {
     const body = req.body;
     try {
       const novoAgendamento = new AgendaModel(
@@ -57,26 +57,18 @@ const AgendaController = (app, bd) => {
         body.Servico,
         body.Duracao
       );
-      agendaDAO
-        .inserirAgendamento(novoAgendamento)
-        .then((response) => {
-          res.status(201).json(response);
-        })
-        .catch((error) => {
-          res.status(400).json(error);
-        });
+      const inserirAgendamento = await agendaDAO.inserirAgendamento(
+        novoAgendamento
+      );
+      res.status(201).json(inserirAgendamento);
     } catch (error) {
-      res.status(400).json({
-        message: error.message,
-        error: true,
-      });
+      res.status(400).json(error);
     }
   });
 
-  app.put("/agenda/id/:ID", (req, res) => {
+  app.put("/agenda/id/:ID", async (req, res) => {
     const ID = req.params.ID;
     const body = req.body;
-
     try {
       const atualizacao = new AgendaModel(
         body.Cliente_ID,
@@ -86,32 +78,25 @@ const AgendaController = (app, bd) => {
         body.Servico,
         body.Duracao
       );
-      agendaDAO
-        .atualizarAgendamento(ID, atualizacao)
-        .then((response) => {
-          res.status(200).json(response);
-        })
-        .catch((error) => {
-          res.status(400).json(error);
-        });
+      const atualizarAgendamento = await agendaDAO.atualizarAgendamento(
+        ID,
+        atualizacao
+      );
+      res.status(200).json(atualizarAgendamento);
     } catch (error) {
-      res.status(400).json({
-        message: error,
-        error: true,
-      });
+      res.status(400).json(error);
+      console.log(error);
     }
   });
 
-  app.delete("/agenda/id/:ID", (req, res) => {
+  app.delete("/agenda/id/:ID", async (req, res) => {
     const ID = req.params.ID;
-    agendaDAO
-      .deletarAgendamento(ID)
-      .then((response) => {
-        res.status(200).json(response);
-      })
-      .catch((error) => {
-        res.status(400).json(error);
-      });
+    try {
+      const deletarAgendamento = await agendaDAO.deletarAgendamento(ID);
+      res.status(200).json(deletarAgendamento);
+    } catch (error) {
+      res.status(400).json(error);
+    }
   });
 };
 
