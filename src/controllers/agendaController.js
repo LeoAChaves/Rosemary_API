@@ -4,6 +4,13 @@ import AgendaModel from "../models/agendaModel.js";
 const AgendaController = (app, bd) => {
   const agendaDAO = new AgendaDAO(bd);
 
+  app.get("/", (req, res) => {
+    res.send(`
+    <h2>Rosemary's Tattoo API</h2>
+    <p>Acesse o repoistório <a href="https://github.com/LeoAChaves/Rosemary_API">https://github.com/LeoAChaves/Rosemary_API</a> para mais informações.</p>
+    `);
+  });
+
   app.get("/agenda", async (req, res) => {
     try {
       const pegarTodosAgendamentos = await agendaDAO.pegarTodosAgendamentos();
