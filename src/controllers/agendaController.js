@@ -62,7 +62,7 @@ const AgendaController = (app, bd) => {
       );
       res.status(201).json(inserirAgendamento);
     } catch (error) {
-      res.status(400).json(error);
+      res.status(400).json(error.message);
     }
   });
 
@@ -84,7 +84,7 @@ const AgendaController = (app, bd) => {
       );
       res.status(200).json(atualizarAgendamento);
     } catch (error) {
-      res.status(400).json(error);
+      res.status(400).json(error.message);
       console.log(error);
     }
   });
@@ -95,7 +95,7 @@ const AgendaController = (app, bd) => {
       const deletarAgendamento = await agendaDAO.deletarAgendamento(ID);
       res.status(200).json(deletarAgendamento);
     } catch (error) {
-      res.status(400).json(error);
+      res.status(400).json(error.message);
     }
   });
 };
