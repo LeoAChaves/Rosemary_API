@@ -139,6 +139,27 @@ Schema da resposta
 }
 ```
 
+- **GET /agenda/data/{Data}**
+
+Schema da resposta
+
+```
+{
+	"agenda": [
+		{
+			"ID": <number>,
+			"Cliente_ID": <number>,
+			"Funcionario_ID": <number>,
+			"Data": {Data},
+			"Hora": "HH:MM:SS",
+			"Servico": <string>,
+			"Duracao": <number>
+		}
+	],
+	"error": <boolean>
+}
+```
+
 - **POST /agenda**
 
 Schema da requisição
