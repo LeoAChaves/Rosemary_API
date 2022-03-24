@@ -7,7 +7,7 @@ const AgendaController = (app, bd) => {
   app.get("/agenda", async (req, res) => {
     try {
       const pegarTodosAgendamentos = await agendaDAO.pegarTodosAgendamentos();
-      res.status(302).json(pegarTodosAgendamentos);
+      res.status(200).json(pegarTodosAgendamentos);
     } catch (error) {
       res.status(404).json(error);
     }
@@ -19,7 +19,7 @@ const AgendaController = (app, bd) => {
       const pegarAgendamentoCliente = await agendaDAO.pegarAgendamentoCliente(
         Cliente_ID
       );
-      res.status(302).json(pegarAgendamentoCliente);
+      res.status(200).json(pegarAgendamentoCliente);
     } catch (error) {
       res.status(404).json(error);
     }
@@ -30,7 +30,7 @@ const AgendaController = (app, bd) => {
       const Funcionario_ID = req.params.Funcionario_ID;
       const pegarAgendamentoFuncionario =
         await agendaDAO.pegarAgendamentoFuncionario(Funcionario_ID);
-      res.status(302).json(pegarAgendamentoFuncionario);
+      res.status(200).json(pegarAgendamentoFuncionario);
     } catch (error) {
       res.status(404).json(error);
     }
@@ -40,7 +40,7 @@ const AgendaController = (app, bd) => {
     try {
       const Data = req.params.Data;
       const pegarAgendamentoData = await agendaDAO.pegarAgendamentoData(Data);
-      res.status(302).json(pegarAgendamentoData);
+      res.status(200).json(pegarAgendamentoData);
     } catch (error) {
       res.status(404).json(error);
     }
