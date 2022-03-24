@@ -149,12 +149,12 @@ class AgendaDAO {
       this.db.run("DELETE FROM AGENDA WHERE ID = ?", ID, (error) => {
         if (error) {
           reject({
-            mensagem: error,
+            message: error,
             error: true,
           });
         } else {
           resolve({
-            agenda: `Agendamento de ID ${ID} deletado com sucesso`,
+            message: `Agendamento de ID ${ID} deletado com sucesso`,
             error: false,
           });
         }
