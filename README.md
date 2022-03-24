@@ -1,25 +1,27 @@
-# Rosemary_API
+# 🌹 Rosemary_API 💀
+
+<img src="./src/assets/README/Rosemary.png" width="100%">
 
 Projeto final de módulo (IV) do curso de Web Dev Full Stack da [Resilia Educação](https://www.resilia.com.br/).
 
 Projeto realizado utilizando o [Node.js](https://nodejs.org/en/) com framework [Express](https://expressjs.com/).
 
-#
+---
 
-## Objetivo
+## 🎯 Objetivo
 
 Esse projeto tem como objetivo criar uma API REST para uma entidade (agenda) de um estúdio de tatuagem, onde deve ser possível aplicar as operações de CRUD.
 
-#
+---
 
-## Pré-Requisitos
+## 📝 Pré-Requisitos
 
-- Node.js v.16.14.0
-- NPM v.8.3.1
+- [Node.js](https://nodejs.org/en/) v.16.14.0
+- [NPM](https://www.npmjs.com/) v.8.3.1
 
-#
+---
 
-## Pacotes utilizados
+## 🎁 Pacotes utilizados
 
 Dependências de produção:
 
@@ -33,9 +35,9 @@ Dependências de desenvolvimento:
 - [Jest](https://jestjs.io/docs/getting-started) v.27.5.1
 - [Supertest](https://www.npmjs.com/package/supertest) v.6.2.2
 
-#
+---
 
-## Instalação da Aplicação
+## 💻 Instalação da Aplicação
 
 Abra o terminal/Powershell e rode os comandos abaixo:
 
@@ -77,13 +79,15 @@ Iniciando o servidor:
 npm start
 ```
 
-#
+---
 
-## Rotas implementadas
+## 📌 Rotas implementadas
 
 - **GET /agenda**
 
-Schema da resposta
+Retorna todos os agendamentos realizados;
+
+Schema da resposta:
 
 ```
 {
@@ -104,7 +108,9 @@ Schema da resposta
 
 - **GET /agenda/cliente/{Cliente_ID}**
 
-Schema da resposta
+Retorna todos os agendamentos de um determinado cliente.
+
+Schema da resposta:
 
 ```
 {
@@ -125,7 +131,9 @@ Schema da resposta
 
 - **GET /agenda/funcionario/{Funcionario_ID}**
 
-Schema da resposta
+Retorna todos os agendamentos de um determinado funcionario.
+
+Schema da resposta:
 
 ```
 {
@@ -146,7 +154,9 @@ Schema da resposta
 
 - **GET /agenda/data/{Data}**
 
-Schema da resposta
+Retorna todos os agendamentos em uma determinada data.
+
+Schema da resposta:
 
 ```
 {
@@ -167,7 +177,9 @@ Schema da resposta
 
 - **POST /agenda**
 
-Schema da requisição
+Insere um novo agendamento no banco de dados.
+
+Schema da requisição:
 
 ```
 {
@@ -180,7 +192,7 @@ Schema da requisição
 }
 ```
 
-Schema da resposta
+Schema da resposta:
 
 ```
 {
@@ -199,7 +211,9 @@ Schema da resposta
 
 - **PUT /agenda/id/{ID}**
 
-Schema da requisição
+Atualiza um determinado agendamento no banco de dados.
+
+Schema da requisição:
 
 ```
 {
@@ -212,7 +226,7 @@ Schema da requisição
 }
 ```
 
-Schema da resposta
+Schema da resposta:
 
 ```
 {
@@ -231,7 +245,9 @@ Schema da resposta
 
 - **DELETE /agenda/id/{ID}**
 
-Schema da resposta
+Deleta um determinado agendamento do banco de dados.
+
+Schema da resposta:
 
 ```
 {
@@ -239,3 +255,31 @@ Schema da resposta
     "error": <boolean>
 }
 ```
+
+---
+
+## 🔬 Testes
+
+Para realização dos testes, devem ser instalados os pacotes Jest e Supertest no ambiente de desenvolvimento.
+
+```
+npm install --save-dev jest
+```
+
+```
+npm install --save-dev supertest
+```
+
+Para excetutar os teste basta inserir este comando:
+
+```
+npm run test
+```
+
+---
+
+## 🌱Desenvolvido por
+
+<b>Leonardo de Almeida Chaves ✈️</b>
+
+[![Linkedin Badge](https://img.shields.io/badge/-Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/leonardo-chaves-b6544b229/)](https://www.linkedin.com/in/leonardo-chaves-b6544b229/)
