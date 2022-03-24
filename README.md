@@ -23,6 +23,7 @@ Esse projeto tem como objetivo criar uma API REST para uma entidade (agenda) de 
 
 Dependências de produção:
 
+- [Cors](https://www.npmjs.com/package/cors) v.2.8.5
 - [Express](https://www.npmjs.com/package/express) v.4.17.3
 - [SQLite](https://www.npmjs.com/package/sqlite3) v.5.0.0
 
@@ -58,6 +59,10 @@ npm install express
 
 ```
 npm install sqlite3
+```
+
+```
+npm install cors
 ```
 
 Criando e populando banco de dados:
