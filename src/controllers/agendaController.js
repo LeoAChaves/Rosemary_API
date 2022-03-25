@@ -9,7 +9,10 @@ const AgendaController = (app, bd) => {
       const pegarTodosAgendamentos = await agendaDAO.pegarTodosAgendamentos();
       res.status(200).json(pegarTodosAgendamentos);
     } catch (error) {
-      res.status(404).json(error);
+      res.status(404).json({
+        message: error.message,
+        error: true,
+      });
     }
   });
 
@@ -21,7 +24,10 @@ const AgendaController = (app, bd) => {
       );
       res.status(200).json(pegarAgendamentoCliente);
     } catch (error) {
-      res.status(404).json(error);
+      res.status(404).json({
+        message: error.message,
+        error: true,
+      });
     }
   });
 
@@ -32,7 +38,10 @@ const AgendaController = (app, bd) => {
         await agendaDAO.pegarAgendamentoFuncionario(Funcionario_ID);
       res.status(200).json(pegarAgendamentoFuncionario);
     } catch (error) {
-      res.status(404).json(error);
+      res.status(404).json({
+        message: error.message,
+        error: true,
+      });
     }
   });
 
@@ -42,7 +51,10 @@ const AgendaController = (app, bd) => {
       const pegarAgendamentoData = await agendaDAO.pegarAgendamentoData(Data);
       res.status(200).json(pegarAgendamentoData);
     } catch (error) {
-      res.status(404).json(error);
+      res.status(404).json({
+        message: error.message,
+        error: true,
+      });
     }
   });
 
@@ -62,7 +74,10 @@ const AgendaController = (app, bd) => {
       );
       res.status(201).json(inserirAgendamento);
     } catch (error) {
-      res.status(400).json(error.message);
+      res.status(400).json({
+        message: error.message,
+        error: true,
+      });
     }
   });
 
@@ -84,8 +99,10 @@ const AgendaController = (app, bd) => {
       );
       res.status(200).json(atualizarAgendamento);
     } catch (error) {
-      res.status(400).json(error.message);
-      console.log(error);
+      res.status(400).json({
+        message: error.message,
+        error: true,
+      });
     }
   });
 
@@ -95,7 +112,10 @@ const AgendaController = (app, bd) => {
       const deletarAgendamento = await agendaDAO.deletarAgendamento(ID);
       res.status(200).json(deletarAgendamento);
     } catch (error) {
-      res.status(400).json(error.message);
+      res.status(400).json({
+        message: error.message,
+        error: true,
+      });
     }
   });
 };
