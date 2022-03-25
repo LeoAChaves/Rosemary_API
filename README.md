@@ -56,15 +56,7 @@ cd Rosemary_API
 Instalando os pacotes necessários:
 
 ```
-npm install express
-```
-
-```
-npm install sqlite3
-```
-
-```
-npm install cors
+npm install
 ```
 
 Criando e populando banco de dados:
@@ -154,7 +146,7 @@ Schema da resposta:
 
 - **GET /agenda/data/{Data}**
 
-Retorna todos os agendamentos em uma determinada data.
+Retorna todos os agendamentos em uma determinada data (O formato para a data deve ser: "YYYY-MM-DD").
 
 Schema da resposta:
 
@@ -260,17 +252,7 @@ Schema da resposta:
 
 ## 🔬 Testes
 
-Para realização dos testes, devem ser instalados os pacotes Jest e Supertest no ambiente de desenvolvimento.
-
-```
-npm install --save-dev jest
-```
-
-```
-npm install --save-dev supertest
-```
-
-Para excetutar os teste basta inserir este comando:
+Para excetutar os testes, basta inserir o comando:
 
 ```
 npm run test
