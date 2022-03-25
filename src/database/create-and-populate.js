@@ -43,8 +43,9 @@ function popularTabelaAgenda() {
         "SQLITE_CONSTRAINT: UNIQUE constraint failed: AGENDA.ID"
       ) {
         console.log("A tabela já foi populada\n");
+      } else {
+        console.log(`Erro ao popular tabela AGENDA\n${error.message}\n`);
       }
-      console.log(`Erro ao popular tabela AGENDA\n${error.message}\n`);
     }
   });
 }
