@@ -32,6 +32,11 @@ class AgendaDAO {
               message: error,
               error: true,
             });
+          } else if (rows.length === 0) {
+            reject({
+              message: `Cliente de ID: ${Cliente_ID} não entcontrado`,
+              error: false,
+            });
           } else {
             resolve({
               agenda: rows,
@@ -54,6 +59,11 @@ class AgendaDAO {
               message: error,
               error: true,
             });
+          } else if (rows == "") {
+            reject({
+              message: `Funcionario de ID: ${Funcionario_ID} não encontrado`,
+              error: false,
+            });
           } else {
             resolve({
               agenda: rows,
@@ -75,6 +85,12 @@ class AgendaDAO {
             reject({
               message: error,
               error: true,
+            });
+          } else if (rows == "") {
+            reject({
+              message: `Agendamentos na data:${Data} não encontrado`,
+              modelo_data: "AAAA-MM-DD",
+              error: false,
             });
           } else {
             resolve({
