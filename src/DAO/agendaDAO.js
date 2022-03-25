@@ -59,7 +59,7 @@ class AgendaDAO {
               message: error,
               error: true,
             });
-          } else if (rows == "") {
+          } else if (rows.length === 0) {
             reject({
               message: `Funcionario de ID: ${Funcionario_ID} não encontrado`,
               error: false,
@@ -86,7 +86,7 @@ class AgendaDAO {
               message: error,
               error: true,
             });
-          } else if (rows == "") {
+          } else if (rows.length === 0) {
             reject({
               message: `Agendamentos na data:${Data} não encontrado`,
               modelo_data: "AAAA-MM-DD",
