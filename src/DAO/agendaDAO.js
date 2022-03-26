@@ -177,6 +177,37 @@ class AgendaDAO {
       });
     });
   };
+
+  checarDisponibilidade = (novoAgendamento) => {
+    return new Promise((resolve, reject) => {
+      this.db.all("SELECT * FROM AGENDA", (error, rows) => {
+        if (error) {
+          reject({
+            message: error,
+            error: true,
+          });
+        }
+        rows.forEach((agendamento) => {
+          if (
+            agendamento.Funcionario_ID === novoAgendamento.Funcionario_ID &&
+            agendamento.Data === novoAgendamento.Data &&
+            agendamento.Hora === novoAgendamento.Hora
+          ) {
+            reject({
+              message:
+                "A agenda deste funcionário está preenchida para este horário",
+              error: true,
+            });
+          }
+        });
+        resolve({
+          message: `Novo agendamento criado com sucesso. Data: ${novoAgendamento.Data}, Hora: ${novoAgendamento.Hora}`,
+          agenda: novoAgendamento,
+          error: false,
+        });
+      });
+    });
+  };
 }
 
 export default AgendaDAO;

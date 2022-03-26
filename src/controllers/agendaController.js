@@ -69,10 +69,15 @@ const AgendaController = (app, bd) => {
         body.Servico,
         body.Duracao
       );
+      const checarDisponibilidade = await agendaDAO.checarDisponibilidade(
+        novoAgendamento
+      );
       const inserirAgendamento = await agendaDAO.inserirAgendamento(
         novoAgendamento
       );
-      res.status(201).json(inserirAgendamento);
+      if (checarDisponibilidade) {
+        res.status(201).json(inserirAgendamento);
+      }
     } catch (error) {
       res.status(400).json({
         message: error.message,
@@ -93,11 +98,16 @@ const AgendaController = (app, bd) => {
         body.Servico,
         body.Duracao
       );
+      const checarDisponibilidade = await agendaDAO.checarDisponibilidade(
+        atualizacao
+      );
       const atualizarAgendamento = await agendaDAO.atualizarAgendamento(
         ID,
         atualizacao
       );
-      res.status(200).json(atualizarAgendamento);
+      if (checarDisponibilidade) {
+        res.status(201).json(atualizarAgendamento);
+      }
     } catch (error) {
       res.status(400).json({
         message: error.message,
