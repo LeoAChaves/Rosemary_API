@@ -24,7 +24,17 @@ class AgendaModel {
     }
   };
   _validaDuracao = (duracao) => {
-    const duracoesValidas = [10, 20, 30, 45, 60, 90, 120, 150, 180];
+    const duracoesValidas = [
+      "10",
+      "20",
+      "30",
+      "45",
+      "60",
+      "90",
+      "120",
+      "150",
+      "180",
+    ];
     if (duracoesValidas.includes(duracao)) {
       return duracao;
     } else {
