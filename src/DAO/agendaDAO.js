@@ -21,6 +21,29 @@ class AgendaDAO {
     });
   };
 
+  pegarAgendamentoID = (ID) => {
+    return new Promise((resolve, reject) => {
+      this.db.all("SELECT * FROM AGENDA WHERE ID = ?", ID, (error, rows) => {
+        if (error) {
+          reject({
+            message: error,
+            error: true,
+          });
+        } else if (rows.length === 0) {
+          reject({
+            message: `Agendamento de ID: ${ID} não entcontrado`,
+            error: false,
+          });
+        } else {
+          resolve({
+            agenda: rows,
+            error: false,
+          });
+        }
+      });
+    });
+  };
+
   pegarAgendamentoCliente = (Cliente_ID) => {
     return new Promise((resolve, reject) => {
       this.db.all(

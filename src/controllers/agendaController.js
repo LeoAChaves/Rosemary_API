@@ -16,6 +16,19 @@ const AgendaController = (app, bd) => {
     }
   });
 
+  app.get("/agenda/id/:ID", async (req, res) => {
+    try {
+      const ID = req.params.ID;
+      const pegarAgendamentoID = await agendaDAO.pegarAgendamentoID(ID);
+      res.status(200).json(pegarAgendamentoID);
+    } catch (error) {
+      res.status(404).json({
+        message: error.message,
+        error: true,
+      });
+    }
+  });
+
   app.get("/agenda/cliente/:Cliente_ID", async (req, res) => {
     try {
       const Cliente_ID = req.params.Cliente_ID;
