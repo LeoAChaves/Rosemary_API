@@ -17,7 +17,7 @@ class AgendaModel {
     }
   };
   _validaHora = (hora) => {
-    if (hora.length == 5 && hora.indexOf(":" == 2)) {
+    if (hora.length == 8 && hora.indexOf(":" == 2)) {
       return hora;
     } else {
       throw new Error("Formato de hora inválido. O formato deve ser 'HH:MM'");
