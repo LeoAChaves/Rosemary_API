@@ -35,9 +35,9 @@ describe("POST /agenda", () => {
       Cliente_ID: 10,
       Funcionario_ID: 1,
       Data: "2022-11-15",
-      Hora: "15:30:00",
+      Hora: "15:30",
       Servico: "Portifolio_ID 2",
-      Duracao: 30,
+      Duracao: "30",
     });
     expect(res.statusCode).toEqual(201);
   });
@@ -49,11 +49,11 @@ describe("PUT /agenda/id/:ID", () => {
       Cliente_ID: 9,
       Funcionario_ID: 6,
       Data: "2022-10-28",
-      Hora: "17:30:00",
+      Hora: "17:30",
       Servico: "Portifolio_ID 37",
-      Duracao: 60,
+      Duracao: "60",
     });
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toEqual(201);
   });
 });
 
